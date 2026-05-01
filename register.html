@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - Sarthak Jewellaries</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="login-body">
+    <!-- Simplified Navigation for Login/Register -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">Sarthak Jewellaries</a>
+            </div>
+            <div class="nav-icons">
+                <a href="index.html" class="icon" title="Go Home"><i class="fas fa-home"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Register Container -->
+    <div class="login-wrapper">
+        <div class="login-container">
+            <div class="login-header">
+                <h2>Create Account</h2>
+                <p>Join Sarthak Jewellaries</p>
+            </div>
+
+            <form id="register-form" class="login-form">
+                <div class="input-group">
+                    <label for="phone">Mobile Number (+91)</label>
+                    <input type="tel" id="phone" pattern="[0-9]{10}" maxlength="10" required placeholder="Enter 10-digit mobile number">
+                </div>
+                
+                <div class="input-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required placeholder="Enter your full name">
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required placeholder="Create a password">
+                </div>
+
+                <div class="input-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" required placeholder="Confirm your password">
+                </div>
+                
+                <button type="submit" class="btn btn-primary login-submit-btn">Register Now</button>
+                
+                <div class="register-link" style="margin-top: 20px;">
+                    <p>Already have an account? <a href="login.html">Sign in here</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Custom Popup Message -->
+    <div id="toast-popup" class="toast-popup">
+        <i id="toast-icon" class="fas"></i>
+        <span id="toast-message">Message</span>
+    </div>
+
+    <script src="register.js"></script>
+</body>
+</html>

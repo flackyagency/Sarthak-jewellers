@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarthak Jewellaries - Premium Collections</title>
+    <link rel="stylesheet" href="styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <!-- Using a text logo since actual logo file path isn't provided yet -->
+                <a href="#">Sarthak Jewellaries</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#collections">Collections</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-icons">
+                <div class="nav-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="Search products...">
+                </div>
+                <a href="customer-dashboard.html" class="icon" id="dashboard-icon" style="display: none;" title="My Dashboard"><i class="fas fa-list-alt"></i></a>
+                <a href="login.html" class="icon" id="login-icon" title="Login/Register"><i class="fas fa-user"></i></a>
+                <a href="#" class="icon cart-icon" id="cart-btn">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Bag</h3>
+            <button class="close-cart" id="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be injected here via JS -->
+            <p class="empty-cart-msg">Your bag is currently empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cart-total-price">₹0.00</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cart-overlay"></div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" style="display: none;">
+        <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000;"></div>
+        <div style="background: #1a1a1a; padding: 30px; border-radius: 8px; width: 90%; max-width: 400px; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1001; border: 1px solid var(--primary-color);">
+            <h3 style="margin-bottom: 20px; font-family: var(--font-heading); color: var(--primary-color); text-align: center;">Complete Your Order</h3>
+            <form id="checkout-form">
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; color: var(--text-light);">Mobile Number (+91)</label>
+                    <input type="tel" id="checkout-phone" pattern="[0-9]{10}" maxlength="10" required style="width: 100%; padding: 10px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; color: white;" placeholder="10-digit mobile number">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 5px; color: var(--text-light);">Delivery Address</label>
+                    <textarea id="checkout-address" required rows="3" style="width: 100%; padding: 10px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; color: white; font-family: inherit;" placeholder="Enter your full address"></textarea>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button type="button" class="btn" id="cancel-checkout" style="flex: 1; background: rgba(255,255,255,0.1); color: white; border: none; cursor: pointer;">Cancel</button>
+                    <button type="submit" class="btn btn-primary" style="flex: 1; border: none; cursor: pointer;">Place Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <!-- The background image will be set via CSS using the generated hero image -->
+        <div class="hero-content">
+            <h1>Timeless Elegance</h1>
+            <p>Discover our exquisite collection of handcrafted jewellery, designed to celebrate your most precious
+                moments.</p>
+            <a href="#collections" class="btn btn-primary">Shop the Collection</a>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="categories section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Shop by Category</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="category-overlay"></div>
+                    <h3>Rings</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-overlay"></div>
+                    <h3>Necklaces</h3>
+                </div>
+                <div class="category-card">
+                    <div class="category-overlay"></div>
+                    <h3>Earrings</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Collections -->
+    <section class="collections section-padding" id="collections">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Latest Arrivals</h2>
+                <div class="underline"></div>
+                <p>Curated pieces of unparalleled beauty and craftsmanship.</p>
+            </div>
+
+            <!-- Products will be dynamically generated by JS here -->
+            <div class="product-grid" id="product-grid">
+                <!-- Template for a product card -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section-padding" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Heritage</h2>
+                    <div class="underline" style="margin: 20px 0;"></div>
+                    <p>At Sarthak Jewellaries, we believe that every piece of jewelry tells a unique story. For
+                        generations, our master craftsmen have been blending traditional techniques with modern design
+                        to create timeless masterpieces.</p>
+                    <p>We source only the finest, ethically mined diamonds and precious metals to ensure that your
+                        jewelry is not only stunning but also responsibly made.</p>
+                    <a href="#contact" class="btn btn-secondary">Learn More</a>
+                </div>
+                <div class="about-image">
+                    <!-- Placeholder for brand story image -->
+                    <div class="about-placeholder"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3>Sarthak Jewellaries</h3>
+                <p>Crafting timeless elegance and preserving traditions through exquisite jewelry designs.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#collections">Shop</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Customer Care</h4>
+                <ul>
+                    <li><a href="#">Ring Size Guide</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Jewelry Care</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Primium Paradise Indore MP India</p>
+                <p><i class="fas fa-phone"></i> +91 6266364351 </p>
+                <p><i class="fas fa-envelope"></i> yoyoyt4343@gmail.com </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Sarthak Jewellaries. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
